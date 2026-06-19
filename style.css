@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #1e1e2f;
+  color: #f0f0f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: #2a2a40;
+  border: 1px solid #3d3d5c;
+  border-radius: 10px;
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.card h1 {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #b0b0c0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #4a4a6a;
+  background: #1e1e2f;
+  color: #f0f0f5;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #6c63ff;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #6c63ff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #5a52e0;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #b0b0c0;
+  border: 1px solid #4a4a6a;
+}
+
+.btn-secondary:hover {
+  background: #34344e;
+}
+
+.msg {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.msg-success {
+  background: rgba(61, 220, 132, 0.12);
+  color: #3ddc84;
+  border: 1px solid rgba(61, 220, 132, 0.3);
+}
+
+.msg-error {
+  background: rgba(255, 77, 109, 0.12);
+  color: #ff6b87;
+  border: 1px solid rgba(255, 77, 109, 0.3);
+}
+
+.hidden {
+  display: none;
+}

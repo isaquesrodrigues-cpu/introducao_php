@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — Sistema de Usuários</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Criar conta</h1>
+
+    <form id="form-cadastro" action="cadastro.php" method="POST">
+
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome">
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email" placeholder="seu@email.com">
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+    <a href="index.html" class="btn btn-secondary">Voltar para o login</a>
+
+    <div id="msg" class="msg hidden"></div>
+  </div>
+
+  <script>
+
+    document.getElementById('form-cadastro').addEventListener('submit', function (e) {
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value;
+
+      if (!nome || !email || !senha) {
+        e.preventDefault();
+        mostrarMsg('error', 'Preencha todos os campos.');
+        return;
+      }
+
+      if (senha.length < 6) {
+        e.preventDefault();
+        mostrarMsg('error', 'A senha deve ter pelo menos 6 caracteres.');
+      }
+    });
+
+    function mostrarMsg(tipo, texto) {
+      const el = document.getElementById('msg');
+      el.className = 'msg msg-' + tipo;
+      el.textContent = texto;
+      el.classList.remove('hidden');
+    }
+
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get('status');
+
+      const mensagens = {
+        'campos_vazios': ['error', 'Preencha todos os campos.'],
+        'email_invalido': ['error', 'Informe um e-mail válido.'],
+        'senha_curta': ['error', 'A senha deve ter pelo menos 6 caracteres.'],
+        'email_existente': ['error', 'Este e-mail já está cadastrado.'],
+      };
+
+      if (status && mensagens[status]) {
+        mostrarMsg(mensagens[status][0], mensagens[status][1]);
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
