@@ -15,7 +15,7 @@ $email = trim($_POST['email']?? ''); // Crio uma variável chamada $email dentro
 $senha = $_POST['senha'] ??'';
 
 if (empty($email) || empty($senha)) {
-    header('Location: index.html');
+    header('Location: index.php');
     exit;
 }
 
@@ -29,7 +29,7 @@ $usuario = $resultado -> fetch_assoc();
 $stmt ->close();
 
 if (!$usuario || !password_verify($senha,$usuario ['senha'])){
-header("Location: index.html");
+header("Location: index.php");
 exit;
 
 }
