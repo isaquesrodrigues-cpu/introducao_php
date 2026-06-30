@@ -2,6 +2,11 @@
 session_start(); //Inicia a sessão (Ex.:Cookies)
 require 'config.php';   //Carrega a conexão com o banco 
 
+if(!empty($_SESSION['usuario_id'])) {
+    header(('Location:bem vindo.php'));
+    exit;
+}
+
 echo "<pres>";
 var_dump($_POST);
 echo "</pre>";
@@ -32,7 +37,7 @@ exit;
 $_SESSION['usuario_id'] = $usuario['id'];
 $_SESSION['usuario_nome'] = $usuario['nome'];
 
-header('Location: Bem vindo');
+header('Location: bem-vindo.php');
 exit;
 
 ?>

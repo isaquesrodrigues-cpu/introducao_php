@@ -1,3 +1,14 @@
+<?php
+
+
+if(!empty($_SESSION['usuario_id'])) {
+    header(('Location:bem vindo.php'));
+    exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

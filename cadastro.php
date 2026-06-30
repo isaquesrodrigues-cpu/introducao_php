@@ -27,7 +27,7 @@ $stmt ->close();
 $hash = password_hash($senha,PASSWORD_DEFAULT);
 
 $stmt = $conexao->prepare("INSERT INTO usuarios (nome,email,senha) VALUES (?,?,?)" );
-$stmt->blind + param("sss",$nome, $email, $hash);
+$stmt->bind_param("sss",$nome, $email, $hash);
 $stmt->execute();
 
 $stmt->close();
